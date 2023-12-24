@@ -1,0 +1,34 @@
+﻿<Window x:Class="Bai1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bai1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Windown_Load">
+
+    <Grid>
+        <Label Content="Mã bệnh nhân" HorizontalAlignment="Left" Height="28" Margin="27,46,0,0" VerticalAlignment="Top" Width="92"/>
+        <TextBox Style="{StaticResource CustomTextBoxStyle}" x:Name="txtMBN" HorizontalAlignment="Left" Height="28" Margin="156,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <Label Content="Họ tên" HorizontalAlignment="Left" Height="28" Margin="39,92,0,0" VerticalAlignment="Top" Width="69"/>
+        <TextBox x:Name="txtHoTen" HorizontalAlignment="Left" Height="28" Margin="156,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <Label Content="Số ngày nằm viện" HorizontalAlignment="Left" Height="28" Margin="27,136,0,0" VerticalAlignment="Top" Width="112"/>
+        <TextBox x:Name="txtNgay" HorizontalAlignment="Left" Height="28" Margin="156,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <Label Content="Khoa" HorizontalAlignment="Left" Height="28" Margin="39,177,0,0" VerticalAlignment="Top" Width="69"/>
+        <ComboBox x:Name="txtKhoa" HorizontalAlignment="Left" Height="29" Margin="156,177,0,0" VerticalAlignment="Top" Width="203" DisplayMemberPath="TenKhoa" SelectedValuePath="MaKhoa" SelectedIndex="0">
+        </ComboBox>
+        <DataGrid x:Name="dgvQLBenhNhan" HorizontalAlignment="Left" Height="109" Margin="74,225,0,0" VerticalAlignment="Top" Width="640" AutoGenerateColumns="False" AlternatingRowBackground="AliceBlue" SelectedCellsChanged="dgvQLBenhNhan_cellchange">
+            <DataGrid.Columns >
+                <DataGridTextColumn  Header="Mã Bệnh Nhân" Binding="{Binding MaBn}" Width="*" />
+                <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" Width="*"/>
+                <DataGridTextColumn Header="Tên Khoa" Binding="{Binding TenKhoa}" Width="*"/>
+                <DataGridTextColumn Header="Số ngày nằm viện" Binding="{Binding SoNgayNamVien}" Width="*" />
+                <DataGridTextColumn Header="Viện phí" Width="*" Binding="{Binding VienPhi}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button x:Name="btnThem" Template="{StaticResource buttonthem}" Content="Thêm" HorizontalAlignment="Left" Height="32" Margin="204,364,0,0" VerticalAlignment="Top" Width="107" Click="btnThem_Click"/>
+        <Button x:Name="btnTim" Template="{StaticResource buttonthem}" Content="Tìm" HorizontalAlignment="Left" Height="31" Margin="394,365,0,0" VerticalAlignment="Top" Width="124" Click="btnTim_Click"/>
+
+    </Grid>
+</Window>
